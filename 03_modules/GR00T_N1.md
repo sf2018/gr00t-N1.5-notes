@@ -10,25 +10,31 @@ GR00T_N1
 
 1.构造函数
 - def __init__(self, config: GR00T_N1Config, local_model_path: str)
-  config.backbone_cfg / config.action_head_cfg：两个字典，分别初始化视觉-语言模型（EagleBackbone）和动作头（FlowmatchingActionHead）。
-  action_horizon / action_dim：控制动作序列的长度和维度。
+  config.backbone_cfg / config.action_head_cfg：
+    两个字典，分别初始化视觉-语言模型（EagleBackbone）和动作头（FlowmatchingActionHead）。
+  action_horizon / action_dim：
+    控制动作序列的长度和维度。
   compute_dtype：用于推理中数据类型控制（混合精度/float32 等）。
 
-  
-   def __init__(self, config: GR00T_N1Config, local_model_path: str,):
-        assert isinstance(config.backbone_cfg, dict)
+<pre><code>```
+   def __init__(
+        self,
+        config: GR00T_N1Config,
+        local_model_path: str,
+    ):
+        assert isinstance(config.backbone_cfg, dict)                # 检查 config 中的 backbone_cfg 和 action_head_cfg 是否都是字典。
         assert isinstance(config.action_head_cfg, dict)
 
         super().__init__(config)
-        self.local_model_path = local_model_path
+        self.local_model_path = local_model_path                    # 模型路径，后续加载 checkpoint
 
         self.backbone = EagleBackbone(**config.backbone_cfg)
         action_head_cfg = FlowmatchingActionHeadConfig(**config.action_head_cfg)
-        self.action_head = FlowmatchingActionHead(action_head_cfg)
+        self.action_head = FlowmatchingActionHead(action_head_cfg)  # 初始化动作预测模块
 
-        self.action_horizon = config.action_horizon
-        self.action_dim = config.action_dim
-        self.compute_dtype = config.compute_dtype
+        self.action_horizon = config.action_horizon                # 保存动作序列的长度（时间长度）
+        self.action_dim = config.action_dim                        # 保存动作维度
+        self.compute_dtype = config.compute_dtype ```</code></pre>
 
 
 
