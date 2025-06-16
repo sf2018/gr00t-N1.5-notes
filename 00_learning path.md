@@ -85,21 +85,21 @@
 
 **任务：**
 
-阅读 gr00t/model/gr00t_n1.py 中的 GR00T_N1 类。
+- [ ] 阅读 gr00t/model/gr00t_n1.py 中的 GR00T_N1 类。
 
 理解以下模块：
 
-self.vision_model
+- [ ] self.vision_model
 
-self.language_model
+- [ ] self.language_model
 
-self.projector
+- [ ] self.projector
 
-self.policy（DiffusionPolicy）
+- [ ] self.policy（DiffusionPolicy）
 
-检视每个模块的输入输出。
+- [ ] 检视每个模块的输入输出。
 
-阅读 GR00T N1.5 官网介绍，理解架构升级点。
+- [ ] 阅读 GR00T N1.5 官网介绍，理解架构升级点。
 
 
 
