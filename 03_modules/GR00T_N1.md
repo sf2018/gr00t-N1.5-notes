@@ -4,19 +4,19 @@
 
 
 GR00T_N1
+
 backbone: EagleBackbone
 action_head: FlowmatchingActionHead
 prepare_input()
 forward()
 get_action()
-
 1.构造函数
 
-config.backbone_cfg / config.action_head_cfg：
+`config.backbone_cfg / config.action_head_cfg`：
     两个字典，分别初始化视觉-语言模型（EagleBackbone）和动作头（FlowmatchingActionHead）。
-action_horizon / action_dim：
+`action_horizon / action_dim`：
     控制动作序列的长度和维度。
-compute_dtype：用于推理中数据类型控制（混合精度/float32 等）。
+`compute_dtype`：用于推理中数据类型控制（混合精度/float32 等）。
 
 <pre><code>```
    def __init__(
